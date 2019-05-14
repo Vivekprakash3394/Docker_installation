@@ -1,0 +1,29 @@
+############
+Docker Installation File
+###########
+
+1. Install required packages to install docker
+==> yum install yum-utils
+==> yum install device-manager-persistent-data
+==> yum install lvm2
+
+2. Now setup Docker Repository
+==> yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+3. Optional Steps you can skip
+   3.1  Enable the nightly or test repositories.
+======> yum-config-manager --enable docker-ce-test/nightly
+
+   3.2. You can desable repo
+======> yum-config-manager --disable docker-ce-nightly/test
+
+4. Install Selinux if required else skip 
+==> yum install http://vault.centos.org/centos/7.3.1611/extras/x86_64/Packages/container-selinux-2.9-4.el7.noarch.rpm
+
+
+5. Install the latest version of Docker CE and containerd.
+==> yum install docker-ce docker-ce-cli containerd.io
+
+6. Docker Installed successfully, Now start the docker
+==> yum systemctl start docker
+==> yum systemctl enable docker
